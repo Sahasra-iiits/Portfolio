@@ -1,4 +1,4 @@
-# 🌸 Sahasra's Portfolio
+# Sahasra's Portfolio
 
 <div align="center">
 
