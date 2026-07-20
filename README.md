@@ -1,16 +1,71 @@
-# React + Vite
+# 🌸 Sahasra's Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<div align="center">
 
-Currently, two official plugins are available:
+### Full Stack Web Developer | React Enthusiast | AI Explorer
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+A modern, responsive, and interactive developer portfolio built with **React**, **Tailwind CSS**, and **Framer Motion**, showcasing my projects, skills, and journey as a developer.
 
-## React Compiler
+</div>
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 🎨 Modern and minimal UI
+- 📱 Fully responsive design
+- ⚡ Smooth animations with Framer Motion
+- 🖥️ Interactive hero section
+- 💼 Project showcase
+- 🛠️ Skills section
+- 🎓 Education section
+- 📬 Functional contact form
+- 🌙 Clean user experience
+
+---
+
+## 🛠️ Tech Stack
+
+| Category      | Technologies  |
+| ------------- | ------------- |
+| Frontend      | React.js      |
+| Styling       | Tailwind CSS  |
+| Animations    | Framer Motion |
+| Build Tool    | Vite          |
+| Icons         | React Icons   |
+| Email Service | EmailJS       |
+
+---
+
+## 📁 Sections
+
+- 🏠 Home
+- 👋 About
+- 🛠 Skills
+- 💼 Projects
+- 🎓 Education
+- 📬 Contact
+
+---
+
+## 📬 Contact
+
+If you'd like to collaborate or just say hi, feel free to reach out!
+
+- Email: **sahasragubba@gmail.com**
+- LinkedIn: **[[Sahasra Gubba](https://www.linkedin.com/in/sahasra-gubba-167440323/)]**
+- GitHub: **https://github.com/Sahasra-iiits**
+
+---
+
+## ⭐ Show Your Support
+
+If you like this project, consider giving it a ⭐ on GitHub!
+
+---
+
+<div align="center">
+
+Made with ❤️ by **Sahasra Gubba**
+
+</div>
