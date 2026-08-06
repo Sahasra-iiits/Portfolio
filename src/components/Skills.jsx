@@ -1,4 +1,4 @@
-import { filter, svg } from "motion/react-client";
+import { div, filter, svg } from "motion/react-client";
 import React, { useState } from "react";
 import { easeInOut, motion, stagger } from "motion/react";
 import { FaJava } from "react-icons/fa";
@@ -119,16 +119,20 @@ function Skills() {
               variants={cVar}
               key={idx}
               transition={{ duration: 0.1, ease: easeInOut }}
-              className={
-                hovered == idx
-                  ? "xl:h-35 xl:w-35 md:h-30 md:w-30 h-15 w-15 flex flex-col items-center justify-center bg-neutral-200 rounded"
-                  : "xl:h-35 xl:w-35 md:h-30 md:w-30 h-15 w-15 flex flex-col items-center justify-center"
-              }
+              className="xl:h-35 xl:w-35 md:h-30 md:w-30 h-15 w-15 flex flex-col items-center justify-center"
               onMouseEnter={() => setHovered(idx)}
               onMouseLeave={() => setHovered(-1)}
             >
-              <Icon className="h-20 w-20 mx-4" />
-              {hovered == idx && <p>{y.lang}</p>}
+              <Icon
+                className={
+                  hovered == idx
+                    ? "h-20 w-20 mx-4 absolute opacity-8"
+                    : "h-20 w-20 mx-4 absolute"
+                }
+              />
+              {hovered == idx && (
+                <p className="font-semibold xl:text-xl md:text-lg">{y.lang}</p>
+              )}
             </motion.div>
           );
         })}

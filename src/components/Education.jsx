@@ -15,9 +15,9 @@ function Education() {
         initial={{ opacity: 0, y: -50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.3 }}
-        className="border-neutral-300 border-1 bg-white rounded-xl h-content w-full grid md:grid-cols-2  p-4 gap-4"
+        className="border-neutral-300 border bg-white rounded-xl h-content w-full grid md:grid-cols-2  p-4 gap-4"
       >
-        <div className="border-1 border-neutral-300 rounded-lg p-4">
+        <div className="border border-neutral-300 rounded-lg p-4">
           <div className="flex flex-row gap-4 items-center">
             <img src="sricity.png" className="md:h-25 h-20 rounded-xl" />
             <div className="flex flex-col gap-1">
@@ -37,7 +37,7 @@ function Education() {
           </p>
         </div>
         <div className="grid grid-rows-2 gap-4">
-          <div className="border-1 border-neutral-300 rounded-lg p-4 row-span-2">
+          <div className="border border-neutral-300 rounded-lg p-4 row-span-2">
             <p>
               <b>Relevant CourseWork:</b>
             </p>
@@ -48,7 +48,7 @@ function Education() {
             <p className="text-sm">-&gt; Database Management System</p>
             <p className="text-sm">-&gt; Artificial Intelligence</p>
           </div>
-          <div className="border-1 border-neutral-300 rounded-lg p-4">
+          <div className="border border-neutral-300 rounded-lg p-4">
             <p>
               <b>Highlights:</b>
             </p>

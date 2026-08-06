@@ -1,7 +1,14 @@
 import React, { useEffect, useState, useRef } from "react";
-import { stagger, easeInOut, motion, scale } from "motion/react";
+import {
+  stagger,
+  easeInOut,
+  motion,
+  scale,
+  AnimatePresence,
+} from "motion/react";
 import { SiGithub, SiGmail } from "react-icons/si";
 import { SlSocialLinkedin } from "react-icons/sl";
+import { div } from "motion/react-client";
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -9,6 +16,7 @@ function Contact() {
     name: "",
     message: "",
   });
+  const [clicked, setClicked] = useState(false);
   const [hovered, setHovered] = useState(false);
   const ref = useRef(null);
 
@@ -20,14 +28,17 @@ function Contact() {
 
   const handleOnClick = (e) => {
     e.preventDefault();
-    emailjs.sendForm("service_d0bd149", "template_6fmfhbb", ref.current).then(
-      () => {
-        console.log("SUCCESS!");
-      },
-      (error) => {
-        console.log("FAILED...", error);
-      },
-    );
+    if (formData.email != "" && formData.name != "" && formData.message != "") {
+      setClicked(true);
+      emailjs.sendForm("service_d0bd149", "template_6fmfhbb", ref.current).then(
+        () => {
+          console.log("SUCCESS!");
+        },
+        (error) => {
+          console.log("FAILED...", error);
+        },
+      );
+    }
 
     setFormData({ email: "", name: "", message: "" });
   };
@@ -84,7 +95,7 @@ function Contact() {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.6 }}
-        className="grid md:grid-cols-2 gap-1 md:h-90 h-auto bg-neutral-100 border-1 rounded-xl border-neutral-300 my-10  w-full h-fit md:w-full md:h-fit"
+        className="grid md:grid-cols-2 gap-1 md:h-90 bg-neutral-100 border rounded-xl border-neutral-300 my-10  w-full h-fit md:w-full"
       >
         <div className="md:p-5 sm:mb-10 md:mb-0 flex flex-col gap-1 items-center justify-center w-full h-fit md:w-auto md:h-auto">
           <motion.div
@@ -100,10 +111,12 @@ function Contact() {
               <motion.div
                 key={idx}
                 variants={cVar}
-                className="bg-white rounded-xl flex flex-col items-center justify-between md:h-25 md:w-32 h-20 w-15 p-2 border-1 border-neutral-200"
+                className="bg-white rounded-xl flex flex-col items-center justify-between md:h-25 md:w-32 h-20 w-15 p-2 border border-neutral-200"
               >
                 <card.icon className="md:h-15 md:w-15 w-10 h-10" />
-                <p className="text-sm tracking-tight md:block hidden">{card.text}</p>
+                <p className="text-sm tracking-tight md:block hidden">
+                  {card.text}
+                </p>
               </motion.div>
             ))}
           </motion.div>
@@ -117,51 +130,75 @@ function Contact() {
           <p className="text-sm text-neutral-400">Hover on me</p>
         </div>
 
-        <form ref={ref} className="flex flex-col w-full h-fit md:w-auto justify-center gap-2 p-4">
-          <span>Name:</span>
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            placeholder="abc"
-            required
-            onChange={(e) =>
-              setFormData((prev) => ({ ...prev, name: e.target.value }))
-            }
-            className=" p-2 border-1 rounded-xl border-neutral-300 w-full"
-          />
-          <span>Email:</span>
-          <input
-            type="email"
-            name="email"
-            required
-            value={formData.email}
-            placeholder="abc@gmail.com"
-            onChange={(e) =>
-              setFormData((prev) => ({ ...prev, email: e.target.value }))
-            }
-            className="p-2 border-1 rounded-xl border-neutral-300 w-full"
-          />
-          <span>Enter Your Message:</span>
-          <textarea
-            required
-            name="message"
-            placeholder="Hey!"
-            value={formData.message}
-            onChange={(e) =>
-              setFormData((prev) => ({ ...prev, message: e.target.value }))
-            }
-            className="border-1 rounded-xl border-neutral-300 h-20 p-2 w-full"
-          />
+        <AnimatePresence>
+          {!clicked && (
+            <motion.form
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.5 }}
+              ref={ref}
+              className="flex flex-col w-full h-fit md:w-auto justify-center gap-2 p-4"
+            >
+              <span>Name:</span>
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                placeholder="abc"
+                required
+                onChange={(e) =>
+                  setFormData((prev) => ({ ...prev, name: e.target.value }))
+                }
+                className=" p-2 border rounded-xl border-neutral-300 w-full"
+              />
+              <span>Email:</span>
+              <input
+                type="email"
+                name="email"
+                required
+                value={formData.email}
+                placeholder="abc@gmail.com"
+                onChange={(e) =>
+                  setFormData((prev) => ({ ...prev, email: e.target.value }))
+                }
+                className="p-2 border rounded-xl border-neutral-300 w-full"
+              />
+              <span>Enter Your Message:</span>
+              <textarea
+                required
+                name="message"
+                placeholder="Hey!"
+                value={formData.message}
+                onChange={(e) =>
+                  setFormData((prev) => ({ ...prev, message: e.target.value }))
+                }
+                className="border rounded-xl border-neutral-300 h-20 p-2 w-full"
+              />
 
-          <button
-            type="submit"
-            className="bg-[#17a9e5] text-white rounded p-2"
-            onClick={handleOnClick}
-          >
-            Submit
-          </button>
-        </form>
+              <button
+                type="submit"
+                className="bg-[#17a9e5] text-white rounded p-2 cursor-pointer"
+                onClick={handleOnClick}
+              >
+                Submit
+              </button>
+            </motion.form>
+          )}
+        </AnimatePresence>
+
+        <AnimatePresence>
+          {clicked && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.7 }}
+              className="flex flex-col w-full md:w-auto justify-center gap-2 p-4 h-full items-center"
+            >
+              <div className="text-3xl font-medium italic">
+                Thankyou! I'll get back to you soon{" "}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </motion.div>
     </div>
   );
