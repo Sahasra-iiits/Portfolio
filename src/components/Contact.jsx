@@ -30,14 +30,14 @@ function Contact() {
     e.preventDefault();
     if (formData.email != "" && formData.name != "" && formData.message != "") {
       setClicked(true);
-      emailjs.sendForm("service_d0bd149", "template_6fmfhbb", ref.current).then(
-        () => {
-          console.log("SUCCESS!");
-        },
-        (error) => {
-          console.log("FAILED...", error);
-        },
-      );
+      // emailjs.sendForm("service_d0bd149", "template_6fmfhbb", ref.current).then(
+      //   () => {
+      //     console.log("SUCCESS!");
+      //   },
+      //   (error) => {
+      //     console.log("FAILED...", error);
+      //   },
+      // );
     }
 
     setFormData({ email: "", name: "", message: "" });
@@ -193,7 +193,7 @@ function Contact() {
               transition={{ delay: 0.7 }}
               className="flex flex-col w-full md:w-auto justify-center gap-2 p-4 h-full items-center"
             >
-              <div className="text-3xl font-medium italic">
+              <div className="xl:text-3xl md:text-2xl sm:text-xl font-medium italic">
                 Thankyou! I'll get back to you soon{" "}
               </div>
             </motion.div>
