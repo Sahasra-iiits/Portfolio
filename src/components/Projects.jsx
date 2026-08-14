@@ -19,6 +19,13 @@ function Projects() {
   }, []);
   const myProjects = [
     {
+      title: "AirDopes Website",
+      content:
+        "Developed a frontend-only Airdopes-inspired website using React and Tailwind CSS, featuring subtle animations and responsive UI components.",
+      stack: "Node.js, Express.js, MongoDB, EJS",
+      github: "https://github.com/Sahasra-iiits/AirDops_Website",
+    },
+    {
       title: "URL Shortener",
       content:
         "Built a full-stack REST API-driven URL shortener handling 500+ entries; automated redirection and tracked per-link click analytics in real time.",
@@ -103,13 +110,13 @@ function Projects() {
         <div className="flex flex-row justify-between md:gap-15 gap-8 h-10 items-center pr-10">
           <button
             onClick={goLeft}
-            className="md:text-4xl text-2xl border-neutral-900 rounded-4xl border-1 md:p-2 p-1 cursor-pointer"
+            className="md:text-4xl text-2xl border-neutral-900 rounded-4xl border md:p-2 p-1 cursor-pointer"
           >
             &lt;
           </button>
           <button
             onClick={goRight}
-            className="md:text-4xl text-2xl border-neutral-900 rounded-4xl border-1 md:p-2 p-1 cursor-pointer"
+            className="md:text-4xl text-2xl border-neutral-900 rounded-4xl border md:p-2 p-1 cursor-pointer"
           >
             &gt;
           </button>
@@ -138,8 +145,8 @@ function Projects() {
         <AnimatePresence mode="wait">
           {myProjects.map(
             (p, idx) =>
-              
-              (current <= idx &&  idx < cardsPerPage+current)  && (
+              current <= idx &&
+              idx < cardsPerPage + current && (
                 <motion.div
                   variants={child}
                   className="bg-neutral-100  shadow-[inset_-12px_-8px_40px_#46464620] lg:h-[60vh] h-fit rounded-2xl p-8 flex flex-col"
