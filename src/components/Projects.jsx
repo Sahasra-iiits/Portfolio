@@ -149,25 +149,31 @@ function Projects() {
               idx < cardsPerPage + current && (
                 <motion.div
                   variants={child}
-                  className="bg-neutral-100  shadow-[inset_-12px_-8px_40px_#46464620] lg:h-[60vh] h-fit rounded-2xl p-8 flex flex-col"
+                  className="bg-neutral-100 shadow-[inset_-12px_-8px_40px_#46464620] rounded-2xl p-3 flex flex-col justify-center"
                   key={idx}
                 >
-                  <h2 className="text-2xl xl:mb-2 mb-1">{p.title}</h2>
-                  <img
-                    src={"/p" + (idx + 1) + ".png"}
-                    alt=""
-                    className="lg:h-45"
-                  />
-                  <p className="text-2xs mt-2 xl:mb-4 md:mb-2 text-neutral-700">
-                    {p.content}
-                  </p>
-                  <div className="flex flex-row justify-end items-center">
-                    <a
-                      href={p.github}
-                      className="hover:text-[#02b1f5] text-base"
-                    >
-                      GitHub
-                    </a>
+                  <div className="outline outline-neutral-100 outline-offset-0 p-4 lg:h-[58vh] h-fit rounded-2xl bg-neutral-100 ">
+                    <h2 className="text-2xl xl:my-3 my-1 font-bold">
+                      {p.title}
+                    </h2>
+                    <img
+                      src={"/p" + (idx + 1) + ".png"}
+                      alt=""
+                      className="lg:h-45"
+                    />
+                    <p className="text-2xs mt-1 xl:my-4 md:my-2 text-neutral-500">
+                      {p.content}
+                    </p>
+                    <div className="flex flex-row justify-end items-center">
+                      <motion.a
+                        whileHover={{ scale: 1.1, rotate: [-2, 2, -4, 4, 0] }}
+                        transition={{ duration: 0.2 }}
+                        href={p.github}
+                        className=" text-[#02b1f5] text-sm"
+                      >
+                        View on GitHub -&gt;
+                      </motion.a>
+                    </div>
                   </div>
                 </motion.div>
               ),

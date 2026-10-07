@@ -30,14 +30,14 @@ function Contact() {
     e.preventDefault();
     if (formData.email != "" && formData.name != "" && formData.message != "") {
       setClicked(true);
-      // emailjs.sendForm("service_d0bd149", "template_6fmfhbb", ref.current).then(
-      //   () => {
-      //     console.log("SUCCESS!");
-      //   },
-      //   (error) => {
-      //     console.log("FAILED...", error);
-      //   },
-      // );
+      emailjs.sendForm("service_d0bd149", "template_6fmfhbb", ref.current).then(
+        () => {
+          console.log("SUCCESS!");
+        },
+        (error) => {
+          console.log("FAILED...", error);
+        },
+      );
     }
 
     setFormData({ email: "", name: "", message: "" });
