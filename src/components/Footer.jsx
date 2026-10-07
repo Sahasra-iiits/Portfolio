@@ -8,7 +8,7 @@ function Footer() {
         <p>Developed by</p>
         <motion.p
           whileHover={{ rotate: -3 }}
-          className="hover:bg-[#17a9e5] hover:px-1 hover:rounded hover:cursor-pointer"
+          className="hover:bg-[#17a9e5] hover:text-black hover:px-1 hover:rounded hover:cursor-pointer"
         >
           Sahasra Gubba
         </motion.p>
